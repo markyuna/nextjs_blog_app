@@ -1,14 +1,14 @@
-import Link from "next/link"
-import Image from "next/image"
-import Author from "./author"
-import fetcher from "../../lib/fetcher"
-import Spinner from "./spinner"
-import Error from "./error"
+import Link from "next/link";
+import Image from "next/image";
+import Author from "./author";
+import fetcher from "../../lib/fetcher";
+import Spinner from "./spinner";
+import Error from "./error";
 
 export default function Ralated() {
 
     const { data, isLoading, isError } = fetcher('api/posts')
-    
+
     if(isLoading) return <Spinner></Spinner>;
     if(isError) return <Error></Error>
 
@@ -35,7 +35,7 @@ function Post( {data } ){
     return (
         <div className="flex gap-5">
             <div className="image flex flex-col justify-start">
-                <Link href={`/posts/${id}`}><a><Image src={img || ""} className="rounded" width={300} height={200} /></a></Link>
+                <Link href={`/posts/${id}`}><a><Image src={img || ""} className="rounded" width={300} height={200} alt=''/></a></Link>
             </div>
             <div className="info flex justify-center flex-col">
                 <div className="cat">

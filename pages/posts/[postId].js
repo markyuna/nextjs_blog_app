@@ -1,3 +1,5 @@
+import React from 'react';
+
 import Format from '../../layout/format'
 import Author from '../../components/_child/author'
 import Image from 'next/image'
@@ -48,7 +50,7 @@ function Article({ title, img, subtitle, description, author }){
                         {description || "No Description"}
                     </div>
 
-                </div>  
+                </div>
 
                 <Ralated></Ralated>
             </section>

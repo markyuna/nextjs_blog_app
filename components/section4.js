@@ -1,16 +1,16 @@
-import Author from "./_child/author"
-import Link from "next/link"
-import Image from "next/image"
+import Author from "./_child/author";
+import Link from "next/link";
+import Image from "next/image";
 
-import fetcher from '../lib/fetcher'
-import Spinner from "./_child/spinner"
-import Error from "./_child/error"
+import fetcher from '../lib/fetcher';
+import Spinner from "./_child/spinner";
+import Error from "./_child/error";
 
 
 export default function section4() {
 
     const { data, isLoading, isError } = fetcher('api/popular')
-    
+
     if(isLoading) return <Spinner></Spinner>;
     if(isError) return <Error></Error>
 
@@ -46,7 +46,7 @@ function Post({ data }){
     return (
         <div className="flex gap-5">
             <div className="image flex flex-col justify-start">
-                <Link href={`/posts/${id}`}><a><Image src={img || ""}  className="rounded" width={300} height={250} /></a></Link>
+                <Link href={`/posts/${id}`}><a><Image src={img || ""}  className="rounded" width={300} height={250} alt='' /></a></Link>
             </div>
             <div className="info flex justify-center flex-col">
                 <div className="cat">

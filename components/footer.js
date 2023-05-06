@@ -1,6 +1,7 @@
 import { ImFacebook, ImTwitter, ImYoutube } from "react-icons/im";
-import Link from 'next/link'
+import Link from 'next/link';
 import Newslatter from "./_child/newslatter";
+import React from 'react';
 
 export default function footer() {
 
@@ -17,7 +18,7 @@ export default function footer() {
           <div className="py-5">
               <div className="flex gap-6 justify-center">
                     <Link href={"/"}><a><ImFacebook color="#888888" /></a></Link>
-                    <Link href={"/"}><a><ImTwitter color="#888888" /></a></Link>                    
+                    <Link href={"/"}><a><ImTwitter color="#888888" /></a></Link>
                     <Link href={"/"}><a><ImYoutube color="#888888" /></a></Link>
               </div>
 

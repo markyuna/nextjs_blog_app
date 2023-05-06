@@ -1,15 +1,15 @@
-import { Swiper, SwiperSlide } from "swiper/react"
-import Link from "next/link"
-import Image from "next/image"
-import Author from "./_child/author"
-import fetcher from '../lib/fetcher'
-import Spinner from "./_child/spinner"
-import Error from "./_child/error"
+import { Swiper, SwiperSlide } from "swiper/react";
+import Link from "next/link";
+import Image from "next/image";
+import Author from "./_child/author";
+import fetcher from '../lib/fetcher';
+import Spinner from "./_child/spinner";
+import Error from "./_child/error";
 
 export default function section3() {
 
     const { data, isLoading, isError } = fetcher('api/popular')
-    
+
     if(isLoading) return <Spinner></Spinner>;
     if(isError) return <Error></Error>
 
@@ -45,7 +45,7 @@ function Post({ data }){
     return (
         <div className="grid">
             <div className="images">
-                <Link href={`/posts/${id}`}><a><Image src={img || ""} width={600} height={400} /></a></Link>
+                <Link href={`/posts/${id}`}><a><Image src={img || ""} width={600} height={400} alt=''/></a></Link>
             </div>
             <div className="info flex justify-center flex-col py-4">
                 <div className="cat">

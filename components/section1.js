@@ -1,20 +1,20 @@
-import Image from "next/image"
-import Link from "next/link"
-import Author from "./_child/author"
+import Image from "next/image";
+import Link from "next/link";
+import Author from "./_child/author";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Autoplay } from 'swiper';
 // Import Swiper styles
 import 'swiper/css';
-import fetcher from '../lib/fetcher'
-import Spinner from "./_child/spinner"
-import Error from "./_child/error"
+import fetcher from '../lib/fetcher';
+import Spinner from "./_child/spinner";
+import Error from "./_child/error";
 
 
 export default function section1() {
 
     const { data, isLoading, isError } = fetcher('api/trending')
-    
+
     if(isLoading) return <Spinner></Spinner>;
     if(isError) return <Error></Error>
 
@@ -45,7 +45,7 @@ export default function section1() {
             ...
             </Swiper>
 
-            
+
         </div>
     </section>
   )
@@ -58,7 +58,7 @@ function Slide({ data }){
     return (
         <div className="grid md:grid-cols-2">
             <div className="image">
-                <Link href={`/posts/${id}`}><a><Image src={img || "/"} width={600} height={600} /></a></Link>
+                <Link href={`/posts/${id}`}><a><Image src={img || "/"} width={600} height={600} alt=''/></a></Link>
             </div>
             <div className="info flex justify-center flex-col">
                 <div className="cat">

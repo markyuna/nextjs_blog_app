@@ -4,31 +4,103 @@
 @tailwind components;
 @tailwind utilities;
 
-* > *{
+/* Fuentes */
+* > * {
   font-family: 'Poppins', sans-serif;
 }
 
+/* Enlaces */
 a {
   color: inherit;
   text-decoration: none;
 }
 
+/* Box-sizing */
 * {
   box-sizing: border-box;
 }
 
-.input-text {
-  @apply mt-1 block w-60 px-3 py-2 bg-white border border-slate-300 rounded-full text-sm shadow-sm placeholder-slate-500;
-  @apply focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500;
+@layer base {
+  .border-sky-500 {
+    border-color: #63B3ED;
+    box-shadow: 0 0 0 2px #E5E7EB, 0 0 0 4px #63B3ED;
+  }
 }
 
-.loader{
-  @apply border-gray-200 rounded-full border-4 ease-linear h-10 w-10;
-  border-top-color: #363ce0;
+/* Layer - Directiva */
+@layer directive {
+  .border-sky-500 {
+    border-color: #93C5FD;
+    box-shadow: 0 0 0 1px #93C5FD;
+  }
+}
+
+/* Layer - Utilidades */
+@layer utilities {
+  .border-sky-500 {
+    border-color: #93C5FD;
+    box-shadow: 0 0 0 1px #93C5FD;
+  }
+}
+
+/* Layer - Componentes */
+@layer components {
+  .placeholder-slate-500 {
+    color: slate-500;
+  }
+}
+
+/* Input text */
+.input-text {
+  @layer mt-1 block w-60 px-3 py-2 bg-white border border-slate-300 rounded-full text-sm shadow-sm placeholder-slate-500;
+  @layer focus:border-sky-500;
+}
+
+/* Loader */
+.loader {
+  @layer border-gray-200 rounded-full border-4 ease-linear h-10 w-10;
+  border-top-color: blue-500;
   animation: spinner 1.2s linear infinite;
 }
 
-@keyframes spinner{
-  0% { transform: rotate(0deg);}
-  100% { transform: rotate(360deg);}
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Home */
+.home {
+  background-color: yellow-200;
+}
+
+/* Menú */
+.menu {
+  font-size: 2.2rem;
+}
+
+/* Lista */
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+/* Tecnologías - Añadir */
+.techno-add {
+  background-color: blue-gray-500;
+}
+
+/* Tecnologías - Lista */
+.techno-list {
+  background-color: yellow-200;
+}
+
+/* Enlaces activos */
+nav ul li a.active {
+  font-weight: bold;
 }
