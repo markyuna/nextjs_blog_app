@@ -43,7 +43,7 @@ function Article({ title, img, subtitle, description, author }){
                     <p className='text-gray-500 text-xl text-center'>{subtitle || "No Title"}</p>
 
                     <div className="py-10">
-                        <Image src={img || "/"} width={900} height={600}></Image>
+                        <Image src={img || "/"} width={900} height={600} alt=''></Image>
                     </div>
 
                     <div className="content text-gray-600 text-lg flex flex-col gap-4">

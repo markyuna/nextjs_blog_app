@@ -92,12 +92,12 @@ ul {
 
 /* Tecnologías - Añadir */
 .techno-add {
-  background-color: blue-gray-500;
+  background-color: rgb(50, 50, 202);
 }
 
 /* Tecnologías - Lista */
 .techno-list {
-  background-color: yellow-200;
+  background-color: rgb(122, 122, 138);
 }
 
 /* Enlaces activos */
