@@ -5,9 +5,9 @@ import fetcher from "../../lib/fetcher";
 import Spinner from "./spinner";
 import Error from "./error";
 
-export default function Ralated() {
+export default function Related() {
 
-    const { data, isLoading, isError } = fetcher('api/posts')
+    const { data, isLoading, isError } = fetcher('pages/api/posts')
 
     if(isLoading) return <Spinner></Spinner>;
     if(isError) return <Error></Error>

@@ -1,7 +1,7 @@
 
 import data from '../data'
 
-export default function hanlder(req, res){
+export default function handler(req, res){
     const { Posts } = data;
     if (Posts) return res.status(200).json(Posts);
 

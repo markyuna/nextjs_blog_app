@@ -1,8 +1,8 @@
 const nextConfig = {
   reactStrictMode: true,
   typescript: {
-    // Configuración de TypeScript
-  },
+    // Configuration de TypeScript
+  }
 }
 
-module.exports = nextConfig
+module.exports = nextConfig;

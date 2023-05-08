@@ -1,16 +1,29 @@
-import React from 'react';
-
-import Head from 'next/head'
-import Image from 'next/image'
+import React, { useEffect } from 'react';
+import App from "./_app";
 import Format from '../layout/format';
 
-// compoenents
+import ReactDOM from 'react-dom';
+import { BrowserRouter } from "react-router-dom";
+
+// components
 import Section1 from '../components/section1';
 import Section2 from '../components/section2';
 import Section3 from '../components/section3';
 import Section4 from '../components/section4';
 
 export default function Home() {
+  useEffect(() => {
+    const rootElement = document.getElementById('root');
+    const root = ReactDOM.createRoot(rootElement);
+    root.render(
+      <React.StrictMode>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </React.StrictMode>
+    );
+  }, []);
+
   return (
    <Format>
       <Section1></Section1>

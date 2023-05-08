@@ -2,7 +2,7 @@ import React from 'react';
 import Format from '../../layout/format';
 import Author from '../../components/_child/author';
 import Image from 'next/image';
-import Ralated from '../../components/_child/ralated';
+import Related from '../../components/_child/related';
 import getPost from '../../lib/helper';
 import fetcher from '../../lib/fetcher';
 import Spinner from '../../components/_child/spinner';
@@ -13,7 +13,7 @@ import { SWRConfig } from 'swr';
 export default function Page({ fallback }) {
   const router = useRouter();
   const { postId } = router.query;
-  const { data, isLoading, isError } = fetcher(`api/posts/${postId}`);
+  const { data, isLoading, isError } = fetcher(`/api/posts/${postId}`);
 
   if (isLoading) return <Spinner />;
   if (isError) return <ErrorComponent />;
@@ -51,7 +51,7 @@ function Article({ title, img, subtitle, description, author }) {
           </div>
         </div>
 
-        <Ralated />
+        <Related />
       </section>
     </Format>
   );
@@ -63,7 +63,7 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       fallback: {
-        '/api/posts': posts,
+        'api/posts': posts,
       },
     },
   };
