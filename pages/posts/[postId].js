@@ -1,86 +1,87 @@
-import React from 'react';
-import Format from '../../layout/format';
-import Author from '../../components/_child/author';
-import Image from 'next/image';
-import Related from '../../components/_child/related';
-import getPost from '../../lib/helper';
+import Format from '../../layout/format'
+import Author from '../../components/_child/author'
+import Image from 'next/image'
+import Related from '../../components/_child/related'
+import getPost from '../../lib/helper'
 import fetcher from '../../lib/fetcher';
-import Spinner from '../../components/_child/spinner';
-import ErrorComponent from '../../components/_child/error';
-import { useRouter } from 'next/router';
-import { SWRConfig } from 'swr';
+import Spinner from '../../components/_child/spinner'
+import ErrorComponent from '../../components/_child/error'
+import { useRouter } from 'next/router'
+import { SWRConfig } from 'swr'
 
-export default function Page({ fallback }) {
-  const router = useRouter();
-  const { postId } = router.query;
-  const { data, isLoading, isError } = fetcher(`/api/posts/${postId}`);
+export default function Page({ fallback }){
 
-  if (isLoading) return <Spinner />;
-  if (isError) return <ErrorComponent />;
+    const router = useRouter()
+    const { postId } = router.query;
+    const { data, isLoading, isError } = fetcher(`api/posts/${postId}`)
 
-  return (
-    <SWRConfig value={{ fallback }}>
-      <Article {...data} />
-    </SWRConfig>
-  );
+    if(isLoading) return <Spinner></Spinner>
+    if(isError) return <ErrorComponent></ErrorComponent>
+
+    return (
+        <SWRConfig value={ { fallback }}>
+            <Article {...data}></Article>
+        </SWRConfig>
+    )
+
 }
 
-function Article({ title, img, subtitle, description, author }) {
-  return (
-    <Format>
-      <section className="container mx-auto md:px-2 py-16 w-1/2">
-        <div className="flex justify-center">
-          {author ? <Author {...author} /> : <></>}
-        </div>
+function Article({ title, img, subtitle, description, author }){
 
-        <div className="post py-10">
-          <h1 className="font-bold text-4xl text-center pb-5">
-            {title || 'No Title'}
-          </h1>
+    return (
+        <Format>
+            <section className='container mx-auto md:px-2 py-16 w-1/2'>
+                <div className='flex justify-center'>
+                    { author ? <Author {...author}></Author> : <></>}
+                </div>
 
-          <p className="text-gray-500 text-xl text-center">
-            {subtitle || 'No Title'}
-          </p>
+                <div className="post py-10">
+                    <h1 className='font-bold text-4xl text-center pb-5'>{title || "No Title"}</h1>
 
-          <div className="py-10">
-            <Image src={img || '/'} width={900} height={600} alt="" />
-          </div>
+                    <p className='text-gray-500 text-xl text-center'>{subtitle || "No Title"}</p>
 
-          <div className="content text-gray-600 text-lg flex flex-col gap-4">
-            {description || 'No Description'}
-          </div>
-        </div>
+                    <div className="py-10">
+                        <Image src={img || "/"} width={900} height={600} alt=''></Image>
+                    </div>
 
-        <Related />
-      </section>
-    </Format>
-  );
+                    <div className="content text-gray-600 text-lg flex flex-col gap-4">
+                        {description || "No Description"}
+                    </div>
+
+                </div>
+
+                <Related></Related>
+            </section>
+        </Format>
+    )
 }
 
-export async function getStaticProps({ params }) {
-  const posts = await getPost(params.postId);
 
-  return {
-    props: {
-      fallback: {
-        'api/posts': posts,
-      },
-    },
-  };
-}
+export async function getStaticProps( { params } ){
+    const posts = await getPost(params.postId)
 
-export async function getStaticPaths() {
-  const posts = await getPost();
-  const paths = posts.map((value) => {
     return {
-      params: {
-        postId: value.id.toString(),
-      },
-    };
-  });
+       props : {
+            fallback : {
+                '/api/posts' : posts
+            }
+       }
+    }
+}
 
-  return {
-    paths,
-    fallback: false,
-  };
+export async function getStaticPaths(){
+    const posts = await getPost();
+    const paths = posts.map(value => {
+        return {
+            params : {
+                postId : value.id.toString()
+            }
+        }
+    })
+
+    return {
+        paths,
+        fallback : false
+    }
+
 }

@@ -3,7 +3,7 @@ import Footer from "../components/footer";
 import Head from "next/head";
 import React from 'react';
 
-export default function format( { children }){
+export default function Format( { children }){
     return (
         <>
             <Head>
