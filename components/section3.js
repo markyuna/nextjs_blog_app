@@ -6,37 +6,36 @@ import fetcher from '../lib/fetcher';
 import Spinner from "./_child/spinner";
 import Error from "./_child/error";
 
-export default function section3() {
+export default function Section3() {
 
     const { data, isLoading, isError } = fetcher('api/popular')
 
     if(isLoading) return <Spinner></Spinner>;
-    if(isError) return <Error></Error>
+    if(isError) return <Error></Error>;
 
-  return (
-    <section className="container mx-auto md:px-20 py-16">
-        <h1 className="font-bold text-4xl py-12 text-center">Most Popular</h1>
+    return (
+        <section className="container mx-auto md:px-20 py-16">
+            <h1 className="font-bold text-4xl py-12 text-center">Most Popular</h1>
 
-        {/* swiper */}
-        <Swiper
-            breakpoints={{
-                640 : {
-                    slidesPerView: 2,
-                    spaceBetween: 30
-                }
-            }}
-        >
-            {
-                    data.map((value, index) => (
-                        <SwiperSlide key={index}><Post data={value}></Post></SwiperSlide>
-                    ))
-            }
-        </Swiper>
+            {/* swiper */}
+            <Swiper
+                breakpoints={{
+                    640 : {
+                        slidesPerView: 2,
+                        spaceBetween: 30
+                    }
+                }}
+            >
+                {data ? data.map((value, index) => (
+                    <SwiperSlide key={index}>
+                        <Post data={value} />
+                    </SwiperSlide>
+                )) : null}
+            </Swiper>
 
-    </section>
-  )
+        </section>
+    )
 }
-
 
 function Post({ data }){
 
@@ -56,7 +55,7 @@ function Post({ data }){
                     <Link href={`/posts/${id}`}><a className="text-3xl md:text-4xl font-bold text-gray-800 hover:text-gray-600">{title || "No Title"}</a></Link>
                 </div>
                 <p className="text-gray-500 py-3">
-                {description || "No Description"}
+                    {description || "No Description"}
                 </p>
                 { author ? <Author {...author}></Author> : <></>}
             </div>

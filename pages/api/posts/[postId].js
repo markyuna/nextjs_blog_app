@@ -1,7 +1,6 @@
-import data from '../data'
-
-
 // api/posts/1
+import data from '../data';
+
 export default function handler(req, res){
     const { postId } = req.query;
     const { Posts }  = data;

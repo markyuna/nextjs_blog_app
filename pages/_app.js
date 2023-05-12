@@ -1,9 +1,8 @@
-import "../styles/globals.css";
-import Format from '../layout/format';
+import '../styles/globals.css'
+import React from 'react'
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />,
-         <Format></Format>
+function App({ Component, pageProps }) {
+  return <Component {...pageProps} />
 }
 
-export default MyApp
+export default App

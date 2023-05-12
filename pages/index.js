@@ -1,33 +1,22 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import App from "./App";
-import reportWebVitals from "./reportWebVitals";
-import { BrowserRouter } from "react-router-dom";
+import React from 'react';
+
+import Head from 'next/head'
+import Image from 'next/image'
+import Format from '../layout/format';
+
+// compoenents
+import Section1 from '../components/section1';
+import Section2 from '../components/section2';
+import Section3 from '../components/section3';
+import Section4 from '../components/section4';
 
 export default function Home() {
   return (
-    <div className="home">
-      <h1>My progression</h1>
-      <div>Welcome to this site devoted to your programming progression</div>
-      <br />
-    </div>
-  );
-}
-
-// const root = document.getElementById("root");
-ReactDOM.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </React.StrictMode>,
-  root
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-if (typeof window !== "undefined") {
-  reportWebVitals(console.log);
-  reportWebVitals();
+   <Format>
+      <Section1></Section1>
+      <Section2></Section2>
+      <Section3></Section3>
+      <Section4></Section4>
+   </Format>
+  )
 }

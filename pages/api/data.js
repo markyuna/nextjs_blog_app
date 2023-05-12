@@ -2,20 +2,20 @@
 export default {
   Trending : [
       {
-          id: 1,
-          title: "Statue grue dorée",
-          subtitle: "Sculpture papier mache",
-          category: "Ornements et accessoires de décoration",
-          img : "/images/img1.jpg",
-          description: `
-          Sculpture fabriqué en papier mâché avec lumières leds intégrées à piles.
-          `,
-          published: "Jun 3,  2021",
-          author: {
-              name: "Marcos Suarez",
-              img: "/images/author/author1.jpg",
-              designation : "CEO and Founder"
-          }
+        id: 1,
+        title: "Statue grue dorée",
+        subtitle: "Sculpture papier mache",
+        category: "Ornements et accessoires de décoration",
+        img : "/images/img1.jpg",
+        description: `
+        Sculpture fabriqué en papier mâché avec lumières leds intégrées à piles.
+        `,
+        published: "Jun 3,  2021",
+        author: {
+            name: "Marcos Suarez",
+            img: "/images/author/author1.jpg",
+            designation : "CEO and Founder"
+        }
       },
       {
           id: 2,
